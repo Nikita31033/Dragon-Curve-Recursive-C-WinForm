@@ -62,7 +62,7 @@ namespace _3d
             this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown1.Location = new System.Drawing.Point(1062, 16);
             this.numericUpDown1.Maximum = new decimal(new int[] {
-            1000000,
+            20,
             0,
             0,
             0});
@@ -75,7 +75,6 @@ namespace _3d
             this.numericUpDown1.Size = new System.Drawing.Size(96, 34);
             this.numericUpDown1.TabIndex = 2;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDown1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
             0,

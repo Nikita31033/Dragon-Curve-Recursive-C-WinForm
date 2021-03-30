@@ -15,39 +15,62 @@ namespace _3d
 
         public void Draw(int w, int h, Graphics g, Pen pen)
         {
-            g.Clear(Color.White);
 
             int iterations = (int)numericUpDown1.Value;
             int size = 400;
 
-            Point[] points =
-                {
-                    new Point(w/2, h/2),
-                    new Point(w/2, h/2 + size)
-                };
 
-            Dragon(points[0], points[1], iterations, g, pen);
-            
+            PointF[] points =
+            {
+                new PointF(w/2, h/3),
+                new PointF(w/2, h/3 + size)
+            };
+
+            Dragon(iterations, points, g, pen);
+
+                g.DrawLines(pen, points = Dragon(i, points));
+            }
+        private void Dragon(int iter, PointF[] points, Graphics g, Pen pen)
         }
 
-        private void Dragon(Point p1, Point p2, int iter, Graphics g, Pen pen)
-        {
-            int xn, yn;
-            if (iter > 0)
+            float dx, dy;
+
+            if (iter == 0)
+                g.DrawLine(pen, points[0], points[1]);
+            else
             {
-                xn = (p1.X + p2.X) / 2 + (p2.Y - p1.Y) / 2;
-                yn = (p1.Y + p2.Y) / 2 - (p2.X - p1.X) / 2;
-                Dragon(new Point(p2.X, p2.Y), new Point(xn, yn), iter - 1, g, pen);
-                Dragon(new Point(p1.X, p1.Y), new Point(xn, yn), iter - 1, g, pen);
+                dx = (points[1].X + points[0].X) / 2 + (points[1].Y - points[0].Y) / 2;
+                dy = (points[1].Y + points[0].Y) / 2 - (points[1].X - points[0].X) / 2;
+                PointF[] point1 =
+                {
+                    new PointF(points[0].X, points[0].Y),
+                    new PointF(dx, dy)
+                };
+                PointF[] point2 =
+                {
+                    new PointF(points[1].X, points[1].Y),
+                    new PointF(dx, dy)
+                };
+                Dragon(iter-1, point1, g, pen);
+                Dragon(iter-1, point2, g, pen);
             }
-            g.DrawLine(pen, p1, p2);
+
+            
+                newPoints[i] = pt[i];
+
+            return newPoints;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Pen myPen = new Pen(Color.Black, 1);
-            Graphics g = pictureBox1.CreateGraphics();
+            Pen Pen1 = new Pen(Color.White, 1);
+            g.Clear(Color.Black);
 
+            Draw(pictureBox1.Width, pictureBox1.Height, g, Pen1);
+            Draw(pictureBox1.Width-400, pictureBox1.Height, g, Pen2);
+            Draw(pictureBox1.Width+400, pictureBox1.Height, g, Pen3);
+            Graphics g = pictureBox1.CreateGraphics();
+            
             Draw(pictureBox1.Width, pictureBox1.Height, g, myPen);
         }
     }
