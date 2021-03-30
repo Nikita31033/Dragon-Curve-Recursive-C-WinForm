@@ -11,13 +11,10 @@ namespace _3d
             InitializeComponent();
         }
 
-
         public void Draw(int w, int h, Graphics g, Pen pen)
         {
-
             int iterations = (int)numericUpDown1.Value;
             int size = 400;
-
 
             PointF[] points =
             {
@@ -26,11 +23,10 @@ namespace _3d
             };
 
             Dragon(iterations, points, g, pen);
-
         }
     
-        private void Dragon(int iter, PointF[] points, Graphics g, Pen pen) { 
-        
+        private void Dragon(int iter, PointF[] points, Graphics g, Pen pen) 
+        {        
             float dx, dy;
 
             if (iter == 0)
@@ -52,7 +48,6 @@ namespace _3d
                 Dragon(iter-1, point1, g, pen);
                 Dragon(iter-1, point2, g, pen);
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
